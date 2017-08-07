@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 
 // configuration ===============================================================
 mongoose.connect(process.env.MONGO_URL ||database.localUrl); 	// Try to connect to the MongoDB instance defined in env variables, otherwise connect to local MongoDB instance. 
+mongoose.connection.on('error', console.error.bind(console, "Mongo Error: ")); // add error handling
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console

@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  clabs-mean-todo:
+    image: clabs-mean-todo
+    build: .
+    ports:
+      - 8080:8080

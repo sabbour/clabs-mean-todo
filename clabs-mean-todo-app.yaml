@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: clabs-mean-todo
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: clabs-mean-todo
+    spec:
+      containers:
+      - name: clabs-mean-todo
+        image: sabbour.azurecr.io/clabs-mean-todo
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGO_URL
+          value: "<replace with MongoDB connection string>"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clabs-mean-todo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: clabs-mean-todo

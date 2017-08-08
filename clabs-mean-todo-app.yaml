@@ -13,7 +13,7 @@ spec:
       - name: clabs-mean-todo
         image: sabbour.azurecr.io/clabs-mean-todo
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         env:
         - name: MONGO_URL
           value: "<replace with MongoDB connection string>"
@@ -26,7 +26,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8080
       protocol: TCP
   selector:
     app: clabs-mean-todo

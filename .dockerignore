@@ -8,6 +8,7 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+*.local.json
 acs-engine
 _output
 translations

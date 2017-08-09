@@ -1,0 +1,31 @@
+{
+    "id": "clabs-mean-todo",
+    "cmd": null,
+    "cpus": 1,
+    "mem": 32,
+    "disk": 0,
+    "instances": 1,
+    "container": {
+        "docker": {
+            "image": "sabbour.azurecr.io/clabs-mean-todo",
+            "network": "BRIDGE",
+            "portMappings": [{
+                "containerPort": 8080,
+                "hostPort": 80,
+                "protocol": "tcp",
+                "name": "80",
+                "labels": null
+            }]
+        },
+        "type": "DOCKER"
+    },
+    "env": {
+        "MONGO_URL": "<replace with MongoDB connection string>"
+    },
+    "acceptedResourceRoles": [
+        "slave_public"
+    ],
+    "uris": [
+        "file:///mnt/share/dcosshare/docker.tar.gz"
+    ]
+}
